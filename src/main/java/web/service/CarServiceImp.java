@@ -22,8 +22,7 @@ public class CarServiceImp implements CarService {
     }
 
     @Override
-    public List<Car> getCars(Integer count) {
-        count = (count == null || count >= 5) ? 5 : count < 0 ? 0 : count;
-        return cars.stream().limit(count).toList();
+    public List<Car> getCars(int count) {
+        return cars.stream().limit(Math.max(count, 0)).toList();
     }
 }
